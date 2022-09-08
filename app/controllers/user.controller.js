@@ -40,11 +40,12 @@ exports.allUser = async (req, res) => {
   try {
     let getdata = await getUser();
     const count = getdata.length;
-    res.status(200).send({
-      message: "All User show",
-      data: getdata,
-      count,
-    });
+    res.send({ message: req.t("user_create_success") });
+    // res.status(200).send(req.t({
+    //   message: "All User show",
+    //   data: getdata,
+    //   count,
+    // });
   } catch (error) {
     res.status(500).send({ message: "not show data" || error });
   }
